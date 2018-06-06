@@ -25,7 +25,10 @@ SECRET_KEY = 'r)zxzh@z+yh95q4nbbf%8cqu0jtty5edg9^c8=x^50)1x8lwmp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.238.98.70']
+ALLOWED_HOSTS = [
+    '54.238.98.70',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -55,7 +58,7 @@ ROOT_URLCONF = 'tutorial.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
