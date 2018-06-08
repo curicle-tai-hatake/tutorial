@@ -4,7 +4,13 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from .models import Choice, Question
+from .models import Choice, Question, Todo
+from .serializer import TodoSerializer
+from rest_framework import viewsets, filters
+
+class TestView(viewsets.ModelViewSet):
+    queryset = Todo.objects.all().order_by('-created_at')
+    serializer_class = TodoSerializer
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'

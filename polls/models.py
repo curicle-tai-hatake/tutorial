@@ -3,6 +3,13 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
+class Todo(models.Model):
+    title = models.CharField(max_length=140, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')

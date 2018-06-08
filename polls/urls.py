@@ -2,6 +2,8 @@ from django.urls import path
 
 from . import views
 
+from rest_framework import routers
+
 app_name = 'polls'
 urlpatterns = [
     # ex: /polls/
@@ -13,3 +15,6 @@ urlpatterns = [
     # ex: /polls/5/vote/
     path('<int:pk>/vote/', views.vote, name='vote'),
 ]
+
+router = routers.DefaultRouter()
+router.register(r'test', views.TestView)
